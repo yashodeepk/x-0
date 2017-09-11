@@ -1,0 +1,124 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdlib.h>
+char a[3][3];
+int i,j,k;
+void star()
+{
+    cout<<"PLAYER 1 PLAY FOR STAR(*)";
+    cout<<"\nEnter the required position for placing star:";
+    cin>>k;
+    j=k%10;
+    i=k/10;
+    if(a[i][j]=='#'|| i>=3 || j>3 || i<0 || j<0)
+    {
+     cout<<"\n Enter a valid position!!\n";
+     star();
+    }
+    else{
+    a[i][j]='*';
+    for(i=0;i<3;i++)
+    {
+	for(j=0;j<3;j++)
+
+	{
+	    cout<<"__"<<a[i][j]<<"|";
+	}
+	cout<<"\n";
+    }
+   }
+}
+
+void hash()
+{
+    cout<<"PLAYER 2 PLAY FOR HASH(#)";
+    cout<<"\nEnter the required position for placing hash:";
+     cin>>k;
+    j=k%10;
+    i=k/10;
+
+    if(a[i][j]=='#'|| i>=3 || j>3 || i<0 || j<0)
+    {
+     cout<<"\n Enter a valid position!!";
+     hash();
+    }
+    else{
+    a[i][j]='#';
+    for(i=0;i<3;i++)
+    {
+	for(j=0;j<3;j++)
+	{
+	    cout<<"__"<<a[i][j]<<"|";
+	}
+	cout<<"\n";
+    }
+   }
+}
+
+void compare()
+{
+    if(a[0][0]=='*' && a[0][1]=='*' && a[0][2]=='*'||
+       a[1][0]=='*' &&a[1][1]=='*' && a[1][2]=='*'||
+       a[2][0]=='*' &&a[2][1]=='*' && a[2][2]=='*'||
+       a[0][0]=='*' &&a[1][0]=='*' && a[2][0]=='*'||
+       a[0][1]=='*' &&a[1][1]=='*' && a[2][1]=='*'||
+       a[0][2]=='*' &&a[1][2]=='*' && a[2][2]=='*'||
+       a[0][0]=='*' &&a[1][1]=='*' && a[2][2]=='*'||
+       a[2][0]=='*' &&a[1][1]=='*' && a[0][2]=='*')
+	{
+	cout<<"PLAYER 1 WINS!!CONGRATULATION";
+	getch();
+	exit(0);
+    }
+
+	if(a[0][0]=='#' &&a[0][1]=='#' &&a[0][2]=='#'||
+       a[1][0]=='#' &&a[1][1]=='#' &&a[1][2]=='#'||
+       a[2][0]=='#' &&a[2][1]=='#' &&a[2][2]=='#'||
+       a[0][0]=='#' &&a[1][0]=='#' &&a[2][0]=='#'||
+       a[0][1]=='#' &&a[1][1]=='#' &&a[2][1]=='#'||
+       a[0][2]=='#' &&a[1][2]=='#' &&a[2][2]=='#'||
+       a[0][0]=='#' &&a[1][1]=='#' &&a[2][2]=='#'||
+       a[2][0]=='#' &&a[1][1]=='#' &&a[0][2]=='#')
+	{
+	cout<<"PLAYER 2 WINS!!CONGRATULATION";
+	getch();
+	exit(0);
+	 }
+}
+
+void main()
+{
+    clrscr();
+
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            cout<<"__"<<i<<j<<"|";
+        }
+        cout<<"\n";
+    }
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+	    a[i][j]=' ';
+        }
+    }
+  star();
+  hash();
+  star();
+  hash();
+  star();
+  compare();
+  hash();
+  compare();
+  star();
+  compare();
+  hash();
+  compare();
+  star();
+  cout<<"\nThe game is draw!!";
+
+ getch();
+}
