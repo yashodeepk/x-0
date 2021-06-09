@@ -1,6 +1,7 @@
-#include<iostream.h>
+#include<iostream>
 #include<conio.h>
 #include<stdlib.h>
+using namespace std;
 char a[3][3];
 int i,j,k;
 void star()
@@ -29,10 +30,10 @@ void star()
    }
 }
 
-void hash()
+void hash1()
 {
     cout<<"PLAYER 2 PLAY FOR HASH(#)";
-    cout<<"\nEnter the required position for placing hash:";
+    cout<<"\nEnter the required position for placing hash1:";
      cin>>k;
     j=k%10;
     i=k/10;
@@ -40,7 +41,7 @@ void hash()
     if(a[i][j]=='#'|| i>=3 || j>3 || i<0 || j<0)
     {
      cout<<"\n Enter a valid position!!";
-     hash();
+     hash1();
     }
     else{
     a[i][j]='#';
@@ -106,16 +107,16 @@ void main()
         }
     }
   star();
-  hash();
+  hash1();
   star();
-  hash();
-  star();
-  compare();
-  hash();
-  compare();
+  hash1();
   star();
   compare();
-  hash();
+  hash1();
+  compare();
+  star();
+  compare();
+  hash1();
   compare();
   star();
   cout<<"\nThe game is draw!!";
