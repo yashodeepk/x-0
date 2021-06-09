@@ -87,7 +87,7 @@ void compare()
 	 }
 }
 
-void main()
+int main()
 {
     clrscr();
 
@@ -122,4 +122,5 @@ void main()
   cout<<"\nThe game is draw!!";
 
  getch();
+ return 0;
 }
